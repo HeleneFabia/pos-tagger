@@ -30,6 +30,7 @@ def inference_with_metrics(model, dataloader, classes):
 
             preds = model(texts)
             preds = torch.argmax(preds, dim=1).squeeze(0)
+            #print(preds.shape, targets.shape)
 
             for p, t in zip(preds, targets):
                 if t.item() != 0:
@@ -50,15 +51,17 @@ def get_analysis_dataframe(
 ):
     cls_metrics_valid, cls_metrics_test = list(), list()
     cls_total_valid, cls_total_test = list(), list()
+    tags = list()
     # create lists with scores and totals per dataset
     for cls, tag in value2pos.items():
         if cls != 0:
+            tags.append(tag)
             cls_metrics_test.append(correct_test[cls] / (total_test[cls] + 1e-10))
             cls_metrics_valid.append(correct_valid[cls] / (total_valid[cls] + 1e-10))
             cls_total_test.append(total_test[cls])
             cls_total_valid.append(total_valid[cls])
 
-    tags = list(value2pos.values())
+    #tags = list(value2pos.values())
     # sort list according to test scores
     test_metrics, valid_metrics, test_total, valid_total, tags = zip(*sorted(zip(
         cls_metrics_test,
