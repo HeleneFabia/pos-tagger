@@ -1,6 +1,6 @@
 # Part-of-Speech Tagger 
 
-For more details, please see my notebook [here](https://github.com/HeleneFabia/pos-tagger/blob/main/postagger.ipynb)
+**For my code and more details, please see my notebook [here](https://github.com/HeleneFabia/pos-tagger/blob/main/postagger.ipynb)**
 
 ### Data
 The [CoNLL dataset](https://www.clips.uantwerpen.be/conll2000/chunking/) consists of roughly 10,000 sentences, with each word having a corresponding part-of-speech tag, like the following:
