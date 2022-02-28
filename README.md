@@ -26,7 +26,7 @@ The [CoNLL dataset](https://www.clips.uantwerpen.be/conll2000/chunking/) consist
 
 A complete look-up table for each part-to-speech tag can be found [here](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html).
 
-### Model
+### Model Architecture
 
 According to Wikipedia (I know, I know, quoting from Wikipedia...), "words that are assigned to the same part of speech generally display similar syntaxic behavior (they play similar roles within the grammatical structure of sentences)". This means that the POS of a word depends on its role in the current sentence. Consider the word "right" in the following two sentences: "This is the *right* (JJ) answer" vs. "You have the *right* (NN) to remain silent"). By itsel, you could not assign the correct part of speech to it, but only with the help of the rest of sentence. Hence, we want to use whole sequences as a model's input, not just individual words. I decided to go for a very simple approach and use a vanilla RNN as my sequence model.
 
@@ -40,7 +40,7 @@ One might wonder what a convolutional layer is doing in this architecture. If yo
 
 ### Results
 
-After training for around 40 epochs, I achieved 0.8890 and 0.8667 top-1 accuracy on the validation and test set, respectively. An overview of top-1 accuracy for each class on the test set can be seen here:
+After training for around 40 epochs, I achieved 0.8890 and 0.8667 top-1 accuracy on the validation and test set, respectively. The top-1 accuracy for each class looks like this:
 
 ![accuracy](https://github.com/HeleneFabia/pos-tagger/blob/main/images/accuracy.png)
 
