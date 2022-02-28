@@ -30,7 +30,7 @@ A complete look-up table for each part-to-speech tag can be found [here](https:/
 
 According to Wikipedia (I know, I know, quoting from Wikipedia...), "words that are assigned to the same part of speech generally display similar syntaxic behavior (they play similar roles within the grammatical structure of sentences)". This means that the POS of a word depends on its role in the current sentence. Consider the word "right" in the following two sentences: "This is the *right* (JJ) answer" vs. "You have the *right* (NN) to remain silent"). By itself, you could not assign the correct part of speech to it, but only with the help of the rest of sentence. Hence, we want to use whole sequences as a model's input, not just individual words. I decided to go for a very simple approach and use a vanilla RNN as my sequence model.
 
-An overview of the architecture I used can be seen here:
+An overview of the complete architecture I used can be seen here:
 
 ![model](https://github.com/HeleneFabia/pos-tagger/blob/main/images/model.png)
 
