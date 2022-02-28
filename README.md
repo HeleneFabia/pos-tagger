@@ -1,5 +1,7 @@
 # Part-of-Speech Tagger 
 
+For more details, please see my notebook [here](https://github.com/HeleneFabia/pos-tagger/blob/main/postagger.ipynb)
+
 ### Data
 The [CoNLL dataset](https://www.clips.uantwerpen.be/conll2000/chunking/) consists of roughly 10,000 sentences, with each word having a corresponding part-of-speech tag, like the following:
 
@@ -22,7 +24,7 @@ The [CoNLL dataset](https://www.clips.uantwerpen.be/conll2000/chunking/) consist
 | stock     | NN  |
 | .         | .   |
 
-A complete loop-up table for each part-to-speech tag can be found [here](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html).
+A complete look-up table for each part-to-speech tag can be found [here](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html).
 
 ### Model
 
@@ -35,3 +37,12 @@ An overview of the architecture I used can be seen here:
 One might wonder what a convolutional layer is doing in this architecture. If you have a look at the output of the RNN model, you see that the shape of this output is of size `(sequence_length, hidden_size)`. The final output I need should be of size `(sequence_length, num_classes)`, so that I end up with a probability for each step in the sequence and for POS tag. This computation cannot done by a standard dense layer, since it would squeeze the dimension regarding sequence length. In Keras, there's what is called Time-Distributed Dence (TDD), which is essentially a dense layer but considering time steps. Unfortunately, there's no implementation of this kind of layer in PyTorch. However, a possible subsitution for it can be a convultional layer. One important characteristic of a Time-Distributed Dense is that it applies the same weights at each time step – just like a convolutional layer does with the help of its kernel. Below, a more detailed visualization of what the convolutional layer does.
 
 ![conv2d](https://github.com/HeleneFabia/pos-tagger/blob/main/images/conv.png)
+
+### Results
+
+After training for around 40 epochs, I achieved 0.8890 and 0.8667 top-1 accuracy on the validation and test set, respectively. An overview of top-1 accuracy for each class on the test set can be seen here:
+
+![accuracy](https://github.com/HeleneFabia/pos-tagger/blob/main/images/accuracy.png)
+
+An in-depth written-up analysis as well as further ideas for improvements can be found in the last sections of my [notebook](https://github.com/HeleneFabia/pos-tagger/blob/main/postagger.ipynb)
+
