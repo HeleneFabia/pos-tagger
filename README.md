@@ -24,7 +24,7 @@ The [CoNLL dataset](https://www.clips.uantwerpen.be/conll2000/chunking/) consist
 | stock     | NN  |
 | .         | .   |
 
-A complete look-up table for each part-to-speech tag can be found [here](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html).
+A complete look-up table for each part-of-speech tag can be found [here](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html).
 
 ### Model Architecture
 
