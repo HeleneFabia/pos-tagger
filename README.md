@@ -40,7 +40,7 @@ One might wonder what a convolutional layer is doing in this architecture. Well,
 
 ### Results
 
-After training for around 40 epochs, I achieved 0.8890 and 0.8667 top-1 accuracy on the validation and test set, respectively. The top-1 accuracy for each class looks like this:
+After training for around 40 epochs, it achieved 0.8890 and 0.8667 top-1 accuracy on the validation and test set, respectively. The top-1 accuracy for each class looks like this:
 
 ![accuracy](https://github.com/HeleneFabia/pos-tagger/blob/main/images/accuracy.png)
 
