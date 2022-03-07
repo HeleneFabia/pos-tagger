@@ -32,7 +32,7 @@ According to Wikipedia, "words that are assigned to the same part of speech gene
 
 An overview of the complete architecture I used can be seen here:
 
-![model](https://github.com/HeleneFabia/pos-tagger/blob/main/images/model_overview.png)
+![model](https://github.com/HeleneFabia/pos-tagger/blob/main/images/overview.png)
 
 One might wonder what a convolutional layer is doing in this architecture. Well, if you have a look at the output of the RNN model, you see that its size is `(sequence_length, hidden_size)`. However, the final output should be of size `(sequence_length, num_classes)`, so that I end up with a probability for each step in the sequence and for POS tag. This computation cannot be done by a standard dense layer, since it would squeeze the dimension regarding sequence length. In Keras, there's what is called Time-Distributed Dense (TDD), which is a dense layer but considering time steps. Unfortunately, there's no implementation of it in PyTorch. However, a possible subsitution for it can be a convultional layer. One important characteristic of a Time-Distributed Dense is that it applies the same weights at each time step – just like a convolutional layer does with the help of its kernel. Below, a more detailed visualization of what the convolutional layer does.
 
